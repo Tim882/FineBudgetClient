@@ -1,0 +1,34 @@
+import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
+import { connect } from "react-redux";
+
+const Logout = ({loggedin, login, logout}) => {
+    const navigate = useNavigate();
+
+    function removeToken() {
+        localStorage.removeItem('token');
+    }
+  
+    useEffect(() => {
+        console.log(loggedin)
+        removeToken()
+        logout()
+        navigate("/", { replace: true });
+    }, []);
+  
+    return <div>
+        <h3>Выход из аккаунта...</h3>
+    </div>;
+};
+
+const mapStateToProps = (state) => ({
+    loggedin: state.loggedin 
+    //  Use 'counter: state.counter.counter' and replace the above line if you are using combineReducers to ensure that 'counter' matches the correct key in your store.
+  });
+  
+  const mapDispatchToProps = (dispatch) => ({
+    login: () => dispatch({ type: "LOGIN" }),
+    logout: () => dispatch({ type: "LOGOUT" })
+  });
+  
+export default connect(mapStateToProps, mapDispatchToProps)(Logout);

@@ -1,0 +1,272 @@
+body {
+    font-family: "Lato", sans-serif;
+    background: #f5f5f5;
+    margin-top: 0;
+    margin-right: 0;
+}
+
+header {
+    margin-top: 0;
+    margin-left: 20%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    color: #0a0a0a;
+}
+
+aside {
+    height: 100%;
+    width: 16.5%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    padding-right: 0;
+    margin-right: 0;
+}
+
+aside h1 {
+    padding-left: 10px;
+}
+
+aside nav {
+    background: white;
+    color: #0a0a0a;
+    height: 100%;
+}
+
+aside a {
+    text-decoration: none;
+    font-size: 14px;
+    background: white;
+    color: #0a0a0a;
+    display: block;
+}
+
+.leftnav {
+    padding-right: 0;
+}
+
+/* aside nav ul li {
+    border-top-width: 2px;
+    border-top-color: black;
+} */
+
+.leftnav a:hover {
+    color: #0a0a0a;
+    /* background: aliceblue; */
+}
+
+main {
+    padding-top: 20px;
+    padding-right: 40px;
+    margin-left: 20%;
+    font-size: 14px;
+}
+
+.topnav {
+    margin-left: 16%;
+    background: white;
+    margin-top: 0;
+    padding-top: 15px;
+    padding-bottom: 4px;
+}
+
+footer {
+    background: white;
+    margin-left: 15.9%;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    bottom: 0;
+    position: fixed;
+    width: 82%;
+    margin-right: 0;
+}
+
+.topnav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-right: 25px;
+    overflow: hidden;
+}
+
+.topnav li {
+    float: right;
+}
+
+.topnav li a {
+    display: block;
+    color: #333333;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.topnav li a:hover {
+    color: #0a0a0a;
+    background: #f5f5f5;
+}
+
+/* specific styles */
+
+.add-button {
+    color: white;
+    background: blue;
+    border-radius: 15px;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.delete-button {
+    color: white;
+    background: red;
+    border-radius: 15px;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.update-button {
+    color: white;
+    background: blue;
+    border-radius: 15px;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+/* table styles */
+
+.table{
+	border: 1px solid #eee;
+	table-layout: fixed;
+	width: 100%;
+	margin-bottom: 20px;
+}
+.table th {
+	font-weight: bold;
+	padding: 5px;
+	background: #efefef;
+	border: 1px solid #dddddd;
+}
+.table td{
+	padding: 5px 10px;
+	border: 1px solid #eee;
+	text-align: center;
+}
+.table tbody tr:nth-child(odd){
+	background: #fff;
+}
+.table tbody tr:nth-child(even){
+	background: #F7F7F7;
+}
+
+/* forms */
+
+/* установим отступ 1rem от нижнего края элемента */
+.text-field {
+    margin-bottom: 1rem;
+}
+/* стили для label */
+.text-field {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    /* margin-bottom: 0.25rem; */
+    text-align: center;
+}
+
+input {
+    display: block;
+    width: 30%;
+    height: calc(1rem + 2px);
+    padding: 0.375rem 0.375rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input::placeholder {
+    color: #212529;
+    opacity: 0.4;
+}
+
+input:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #bdbdbd;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+}
+
+input:disabled, input[readonly] {
+    background-color: #f5f5f5;
+    opacity: 1;
+}
+
+/* button */
+
+button {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.delete-btn {
+    font-size: 16px;
+    background: red;
+    
+    >.mdi-delete-empty {
+      display: none;
+    }
+    
+    &:hover {
+      background-color: lighten(red, 48%);
+      
+      >.mdi-delete-empty {
+        display: block;
+      }
+      
+      >.mdi-delete {
+        display: none;
+      }
+    }
+    
+  
+    
+    &:focus {
+      box-shadow: 0 0 0 4px lighten(red, 40%);
+    }
+  }
+
+button:hover {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #3C82F8;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
