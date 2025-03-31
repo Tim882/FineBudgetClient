@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import Sidebar from './Sidebar';
 import Header from './Header';
+import AppRoutes from './AppRoutes';
 
 const drawerWidth = 240;
 
@@ -54,7 +55,7 @@ const App = () => {
         >
           <Toolbar />
           <Typography paragraph>
-            Main content goes here...
+            <AppRoutes />
           </Typography>
         </Box>
       </Box>

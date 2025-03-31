@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Box,
   Typography,
@@ -17,6 +18,11 @@ import {
 } from '@mui/icons-material';
 
 const drawerWidth = 240;
+
+const menuItems = [
+  { text: 'Home', icon: <HomeIcon />, path: '/' },
+  { text: 'Accounts', icon: <PeopleIcon />, path: '/accounts' }
+];
 
 interface SidebarProps {
     handleDrawerToggle: () => void;
@@ -71,13 +77,11 @@ interface SidebarProps {
           </Box>
           <Divider />
           <List>
-            {['Home', 'Users', 'Messages'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index === 0 ? <HomeIcon /> : index === 1 ? <PeopleIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
+            {menuItems.map((item) => (
+              <ListItem key={item.text} disablePadding>
+                <ListItemButton component={Link} to={item.path}>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.text} />
                 </ListItemButton>
               </ListItem>
             ))}
