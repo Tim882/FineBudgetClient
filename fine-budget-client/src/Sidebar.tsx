@@ -21,7 +21,12 @@ const drawerWidth = 240;
 
 const menuItems = [
   { text: 'Home', icon: <HomeIcon />, path: '/' },
-  { text: 'Accounts', icon: <PeopleIcon />, path: '/accounts' }
+  { text: 'Счета', icon: <PeopleIcon />, path: '/accounts' },
+  { text: 'Расходы', icon: <PeopleIcon />, path: '/costs' },
+  { text: 'Доходы', icon: <PeopleIcon />, path: '/incomes' },
+  { text: 'Активы', icon: <PeopleIcon />, path: '/assets' },
+  { text: 'Пассивы', icon: <PeopleIcon />, path: '/liabilities' },
+  
 ];
 
 interface SidebarProps {
