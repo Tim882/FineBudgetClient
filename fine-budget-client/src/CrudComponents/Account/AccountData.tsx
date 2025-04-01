@@ -29,9 +29,11 @@ import { Add, Edit, Delete, Search } from '@mui/icons-material';
 // import { User, Pagination, Sort, Filter } from './types';
 // import { fetchUsers, createUser, updateUser, deleteUser } from './api';
 import AccountDialog from './AccountDialog';
-import { AccountRequestDto, AccountResponseDto, AccountsApi } from '../../api';
+import { AccountRequestDto, AccountResponseDto, AccountsApi, Configuration } from '../../api';
 
-let client = new AccountsApi();
+const config = new Configuration({ basePath: "https://localhost:7230" });
+
+let client = new AccountsApi(config);
   
   export interface Pagination {
     page: number;
