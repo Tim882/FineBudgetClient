@@ -65,6 +65,18 @@ export interface AccountResponseDto {
      * @type {string}
      * @memberof AccountResponseDto
      */
+    'createdAt'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AccountResponseDto
+     */
+    'lastUpdatedAt'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AccountResponseDto
+     */
     'date'?: string;
     /**
      * 
@@ -210,18 +222,6 @@ export interface AccountResponseDtoPaginatedResponseApiResponse {
 export interface AssetRequestDto {
     /**
      * 
-     * @type {AssetType}
-     * @memberof AssetRequestDto
-     */
-    'assetType'?: AssetType;
-    /**
-     * 
-     * @type {string}
-     * @memberof AssetRequestDto
-     */
-    'date'?: string;
-    /**
-     * 
      * @type {string}
      * @memberof AssetRequestDto
      */
@@ -232,6 +232,18 @@ export interface AssetRequestDto {
      * @memberof AssetRequestDto
      */
     'value'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetRequestDto
+     */
+    'date'?: string;
+    /**
+     * 
+     * @type {AssetType}
+     * @memberof AssetRequestDto
+     */
+    'assetType'?: AssetType;
 }
 
 
@@ -249,16 +261,16 @@ export interface AssetResponseDto {
     'id'?: string;
     /**
      * 
-     * @type {AssetType}
+     * @type {string}
      * @memberof AssetResponseDto
      */
-    'assetType'?: AssetType;
+    'createdAt'?: string;
     /**
      * 
      * @type {string}
      * @memberof AssetResponseDto
      */
-    'date'?: string;
+    'lastUpdatedAt'?: string;
     /**
      * 
      * @type {string}
@@ -271,6 +283,18 @@ export interface AssetResponseDto {
      * @memberof AssetResponseDto
      */
     'value'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetResponseDto
+     */
+    'date'?: string;
+    /**
+     * 
+     * @type {AssetType}
+     * @memberof AssetResponseDto
+     */
+    'assetType'?: AssetType;
 }
 
 
@@ -439,18 +463,6 @@ export interface CostRequestDto {
     'transactionNumber'?: string | null;
     /**
      * 
-     * @type {boolean}
-     * @memberof CostRequestDto
-     */
-    'required'?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof CostRequestDto
-     */
-    'costCategory'?: number;
-    /**
-     * 
      * @type {string}
      * @memberof CostRequestDto
      */
@@ -467,6 +479,18 @@ export interface CostRequestDto {
      * @memberof CostRequestDto
      */
     'liabilityId'?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CostRequestDto
+     */
+    'required'?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof CostRequestDto
+     */
+    'costCategory'?: number;
 }
 /**
  * 
@@ -480,6 +504,18 @@ export interface CostResponseDto {
      * @memberof CostResponseDto
      */
     'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CostResponseDto
+     */
+    'createdAt'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CostResponseDto
+     */
+    'lastUpdatedAt'?: string;
     /**
      * 
      * @type {string}
@@ -510,6 +546,24 @@ export interface CostResponseDto {
      * @memberof CostResponseDto
      */
     'transactionNumber'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CostResponseDto
+     */
+    'accountId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CostResponseDto
+     */
+    'assetId'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CostResponseDto
+     */
+    'liabilityId'?: string | null;
     /**
      * 
      * @type {boolean}
@@ -685,12 +739,6 @@ export interface IncomeRequestDto {
     'transactionNumber'?: string | null;
     /**
      * 
-     * @type {IncomeCategory}
-     * @memberof IncomeRequestDto
-     */
-    'incomeCategory'?: IncomeCategory;
-    /**
-     * 
      * @type {string}
      * @memberof IncomeRequestDto
      */
@@ -707,6 +755,12 @@ export interface IncomeRequestDto {
      * @memberof IncomeRequestDto
      */
     'liabilityId'?: string | null;
+    /**
+     * 
+     * @type {IncomeCategory}
+     * @memberof IncomeRequestDto
+     */
+    'incomeCategory'?: IncomeCategory;
 }
 
 
@@ -722,6 +776,18 @@ export interface IncomeResponseDto {
      * @memberof IncomeResponseDto
      */
     'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof IncomeResponseDto
+     */
+    'createdAt'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof IncomeResponseDto
+     */
+    'lastUpdatedAt'?: string;
     /**
      * 
      * @type {string}
@@ -752,6 +818,24 @@ export interface IncomeResponseDto {
      * @memberof IncomeResponseDto
      */
     'transactionNumber'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof IncomeResponseDto
+     */
+    'accountId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof IncomeResponseDto
+     */
+    'assetId'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof IncomeResponseDto
+     */
+    'liabilityId'?: string | null;
     /**
      * 
      * @type {IncomeCategory}
@@ -880,18 +964,6 @@ export interface IncomeResponseDtoPaginatedResponseApiResponse {
 export interface LiabilityRequestDto {
     /**
      * 
-     * @type {LiabilityType}
-     * @memberof LiabilityRequestDto
-     */
-    'liabilityType'?: LiabilityType;
-    /**
-     * 
-     * @type {string}
-     * @memberof LiabilityRequestDto
-     */
-    'date'?: string;
-    /**
-     * 
      * @type {string}
      * @memberof LiabilityRequestDto
      */
@@ -902,6 +974,18 @@ export interface LiabilityRequestDto {
      * @memberof LiabilityRequestDto
      */
     'value'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof LiabilityRequestDto
+     */
+    'date'?: string;
+    /**
+     * 
+     * @type {LiabilityType}
+     * @memberof LiabilityRequestDto
+     */
+    'liabilityType'?: LiabilityType;
 }
 
 
@@ -919,16 +1003,16 @@ export interface LiabilityResponseDto {
     'id'?: string;
     /**
      * 
-     * @type {LiabilityType}
+     * @type {string}
      * @memberof LiabilityResponseDto
      */
-    'liabilityType'?: LiabilityType;
+    'createdAt'?: string;
     /**
      * 
      * @type {string}
      * @memberof LiabilityResponseDto
      */
-    'date'?: string;
+    'lastUpdatedAt'?: string;
     /**
      * 
      * @type {string}
@@ -941,6 +1025,18 @@ export interface LiabilityResponseDto {
      * @memberof LiabilityResponseDto
      */
     'value'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof LiabilityResponseDto
+     */
+    'date'?: string;
+    /**
+     * 
+     * @type {LiabilityType}
+     * @memberof LiabilityResponseDto
+     */
+    'liabilityType'?: LiabilityType;
 }
 
 
@@ -1119,14 +1215,13 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiAccountsGet: async (pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiAccountsGet: async (pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/Accounts`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1147,20 +1242,18 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['PageSize'] = pageSize;
             }
 
-            if (filter !== undefined) {
-                localVarQueryParameter['Filter'] = filter;
-            }
-
-            if (filterValue !== undefined) {
-                localVarQueryParameter['FilterValue'] = filterValue;
-            }
-
             if (sortBy !== undefined) {
                 localVarQueryParameter['SortBy'] = sortBy;
             }
 
             if (sortDescending !== undefined) {
                 localVarQueryParameter['SortDescending'] = sortDescending;
+            }
+
+            if (filters !== undefined) {
+                for (const [key, value] of Object.entries(filters)) {
+                    localVarQueryParameter[key] = value;
+                }
             }
 
 
@@ -1324,15 +1417,14 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiAccountsGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountResponseDtoPaginatedResponseApiResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiAccountsGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options);
+        async apiAccountsGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountResponseDtoPaginatedResponseApiResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiAccountsGet(pageNumber, pageSize, sortBy, sortDescending, filters, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccountsApi.apiAccountsGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1400,15 +1492,14 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiAccountsGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<AccountResponseDtoPaginatedResponseApiResponse> {
-            return localVarFp.apiAccountsGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options).then((request) => request(axios, basePath));
+        apiAccountsGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig): AxiosPromise<AccountResponseDtoPaginatedResponseApiResponse> {
+            return localVarFp.apiAccountsGet(pageNumber, pageSize, sortBy, sortDescending, filters, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1461,16 +1552,15 @@ export class AccountsApi extends BaseAPI {
      * 
      * @param {number} [pageNumber] 
      * @param {number} [pageSize] 
-     * @param {string} [filter] 
-     * @param {string} [filterValue] 
      * @param {string} [sortBy] 
      * @param {boolean} [sortDescending] 
+     * @param {{ [key: string]: string; }} [filters] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public apiAccountsGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).apiAccountsGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options).then((request) => request(this.axios, this.basePath));
+    public apiAccountsGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).apiAccountsGet(pageNumber, pageSize, sortBy, sortDescending, filters, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1531,14 +1621,13 @@ export const AssetsApiAxiosParamCreator = function (configuration?: Configuratio
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiAssetsGet: async (pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiAssetsGet: async (pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/Assets`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1559,20 +1648,18 @@ export const AssetsApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['PageSize'] = pageSize;
             }
 
-            if (filter !== undefined) {
-                localVarQueryParameter['Filter'] = filter;
-            }
-
-            if (filterValue !== undefined) {
-                localVarQueryParameter['FilterValue'] = filterValue;
-            }
-
             if (sortBy !== undefined) {
                 localVarQueryParameter['SortBy'] = sortBy;
             }
 
             if (sortDescending !== undefined) {
                 localVarQueryParameter['SortDescending'] = sortDescending;
+            }
+
+            if (filters !== undefined) {
+                for (const [key, value] of Object.entries(filters)) {
+                    localVarQueryParameter[key] = value;
+                }
             }
 
 
@@ -1736,15 +1823,14 @@ export const AssetsApiFp = function(configuration?: Configuration) {
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiAssetsGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssetResponseDtoPaginatedResponseApiResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiAssetsGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options);
+        async apiAssetsGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssetResponseDtoPaginatedResponseApiResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiAssetsGet(pageNumber, pageSize, sortBy, sortDescending, filters, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AssetsApi.apiAssetsGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1812,15 +1898,14 @@ export const AssetsApiFactory = function (configuration?: Configuration, basePat
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiAssetsGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<AssetResponseDtoPaginatedResponseApiResponse> {
-            return localVarFp.apiAssetsGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options).then((request) => request(axios, basePath));
+        apiAssetsGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig): AxiosPromise<AssetResponseDtoPaginatedResponseApiResponse> {
+            return localVarFp.apiAssetsGet(pageNumber, pageSize, sortBy, sortDescending, filters, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1873,16 +1958,15 @@ export class AssetsApi extends BaseAPI {
      * 
      * @param {number} [pageNumber] 
      * @param {number} [pageSize] 
-     * @param {string} [filter] 
-     * @param {string} [filterValue] 
      * @param {string} [sortBy] 
      * @param {boolean} [sortDescending] 
+     * @param {{ [key: string]: string; }} [filters] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AssetsApi
      */
-    public apiAssetsGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig) {
-        return AssetsApiFp(this.configuration).apiAssetsGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options).then((request) => request(this.axios, this.basePath));
+    public apiAssetsGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig) {
+        return AssetsApiFp(this.configuration).apiAssetsGet(pageNumber, pageSize, sortBy, sortDescending, filters, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1943,14 +2027,13 @@ export const CostsApiAxiosParamCreator = function (configuration?: Configuration
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiCostsGet: async (pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiCostsGet: async (pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/Costs`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1971,20 +2054,18 @@ export const CostsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['PageSize'] = pageSize;
             }
 
-            if (filter !== undefined) {
-                localVarQueryParameter['Filter'] = filter;
-            }
-
-            if (filterValue !== undefined) {
-                localVarQueryParameter['FilterValue'] = filterValue;
-            }
-
             if (sortBy !== undefined) {
                 localVarQueryParameter['SortBy'] = sortBy;
             }
 
             if (sortDescending !== undefined) {
                 localVarQueryParameter['SortDescending'] = sortDescending;
+            }
+
+            if (filters !== undefined) {
+                for (const [key, value] of Object.entries(filters)) {
+                    localVarQueryParameter[key] = value;
+                }
             }
 
 
@@ -2148,15 +2229,14 @@ export const CostsApiFp = function(configuration?: Configuration) {
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiCostsGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CostResponseDtoPaginatedResponseApiResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiCostsGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options);
+        async apiCostsGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CostResponseDtoPaginatedResponseApiResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiCostsGet(pageNumber, pageSize, sortBy, sortDescending, filters, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CostsApi.apiCostsGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2224,15 +2304,14 @@ export const CostsApiFactory = function (configuration?: Configuration, basePath
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiCostsGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<CostResponseDtoPaginatedResponseApiResponse> {
-            return localVarFp.apiCostsGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options).then((request) => request(axios, basePath));
+        apiCostsGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig): AxiosPromise<CostResponseDtoPaginatedResponseApiResponse> {
+            return localVarFp.apiCostsGet(pageNumber, pageSize, sortBy, sortDescending, filters, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2285,16 +2364,15 @@ export class CostsApi extends BaseAPI {
      * 
      * @param {number} [pageNumber] 
      * @param {number} [pageSize] 
-     * @param {string} [filter] 
-     * @param {string} [filterValue] 
      * @param {string} [sortBy] 
      * @param {boolean} [sortDescending] 
+     * @param {{ [key: string]: string; }} [filters] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CostsApi
      */
-    public apiCostsGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig) {
-        return CostsApiFp(this.configuration).apiCostsGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options).then((request) => request(this.axios, this.basePath));
+    public apiCostsGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig) {
+        return CostsApiFp(this.configuration).apiCostsGet(pageNumber, pageSize, sortBy, sortDescending, filters, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2355,14 +2433,13 @@ export const IncomesApiAxiosParamCreator = function (configuration?: Configurati
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiIncomesGet: async (pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiIncomesGet: async (pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/Incomes`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2383,20 +2460,18 @@ export const IncomesApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['PageSize'] = pageSize;
             }
 
-            if (filter !== undefined) {
-                localVarQueryParameter['Filter'] = filter;
-            }
-
-            if (filterValue !== undefined) {
-                localVarQueryParameter['FilterValue'] = filterValue;
-            }
-
             if (sortBy !== undefined) {
                 localVarQueryParameter['SortBy'] = sortBy;
             }
 
             if (sortDescending !== undefined) {
                 localVarQueryParameter['SortDescending'] = sortDescending;
+            }
+
+            if (filters !== undefined) {
+                for (const [key, value] of Object.entries(filters)) {
+                    localVarQueryParameter[key] = value;
+                }
             }
 
 
@@ -2560,15 +2635,14 @@ export const IncomesApiFp = function(configuration?: Configuration) {
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiIncomesGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IncomeResponseDtoPaginatedResponseApiResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiIncomesGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options);
+        async apiIncomesGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IncomeResponseDtoPaginatedResponseApiResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiIncomesGet(pageNumber, pageSize, sortBy, sortDescending, filters, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IncomesApi.apiIncomesGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2636,15 +2710,14 @@ export const IncomesApiFactory = function (configuration?: Configuration, basePa
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiIncomesGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<IncomeResponseDtoPaginatedResponseApiResponse> {
-            return localVarFp.apiIncomesGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options).then((request) => request(axios, basePath));
+        apiIncomesGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig): AxiosPromise<IncomeResponseDtoPaginatedResponseApiResponse> {
+            return localVarFp.apiIncomesGet(pageNumber, pageSize, sortBy, sortDescending, filters, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2697,16 +2770,15 @@ export class IncomesApi extends BaseAPI {
      * 
      * @param {number} [pageNumber] 
      * @param {number} [pageSize] 
-     * @param {string} [filter] 
-     * @param {string} [filterValue] 
      * @param {string} [sortBy] 
      * @param {boolean} [sortDescending] 
+     * @param {{ [key: string]: string; }} [filters] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IncomesApi
      */
-    public apiIncomesGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig) {
-        return IncomesApiFp(this.configuration).apiIncomesGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options).then((request) => request(this.axios, this.basePath));
+    public apiIncomesGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig) {
+        return IncomesApiFp(this.configuration).apiIncomesGet(pageNumber, pageSize, sortBy, sortDescending, filters, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2767,14 +2839,13 @@ export const LiabilitiesApiAxiosParamCreator = function (configuration?: Configu
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiLiabilitiesGet: async (pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiLiabilitiesGet: async (pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/Liabilities`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2795,20 +2866,18 @@ export const LiabilitiesApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['PageSize'] = pageSize;
             }
 
-            if (filter !== undefined) {
-                localVarQueryParameter['Filter'] = filter;
-            }
-
-            if (filterValue !== undefined) {
-                localVarQueryParameter['FilterValue'] = filterValue;
-            }
-
             if (sortBy !== undefined) {
                 localVarQueryParameter['SortBy'] = sortBy;
             }
 
             if (sortDescending !== undefined) {
                 localVarQueryParameter['SortDescending'] = sortDescending;
+            }
+
+            if (filters !== undefined) {
+                for (const [key, value] of Object.entries(filters)) {
+                    localVarQueryParameter[key] = value;
+                }
             }
 
 
@@ -2972,15 +3041,14 @@ export const LiabilitiesApiFp = function(configuration?: Configuration) {
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiLiabilitiesGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LiabilityResponseDtoPaginatedResponseApiResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiLiabilitiesGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options);
+        async apiLiabilitiesGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LiabilityResponseDtoPaginatedResponseApiResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiLiabilitiesGet(pageNumber, pageSize, sortBy, sortDescending, filters, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['LiabilitiesApi.apiLiabilitiesGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3048,15 +3116,14 @@ export const LiabilitiesApiFactory = function (configuration?: Configuration, ba
          * 
          * @param {number} [pageNumber] 
          * @param {number} [pageSize] 
-         * @param {string} [filter] 
-         * @param {string} [filterValue] 
          * @param {string} [sortBy] 
          * @param {boolean} [sortDescending] 
+         * @param {{ [key: string]: string; }} [filters] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiLiabilitiesGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<LiabilityResponseDtoPaginatedResponseApiResponse> {
-            return localVarFp.apiLiabilitiesGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options).then((request) => request(axios, basePath));
+        apiLiabilitiesGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig): AxiosPromise<LiabilityResponseDtoPaginatedResponseApiResponse> {
+            return localVarFp.apiLiabilitiesGet(pageNumber, pageSize, sortBy, sortDescending, filters, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -3109,16 +3176,15 @@ export class LiabilitiesApi extends BaseAPI {
      * 
      * @param {number} [pageNumber] 
      * @param {number} [pageSize] 
-     * @param {string} [filter] 
-     * @param {string} [filterValue] 
      * @param {string} [sortBy] 
      * @param {boolean} [sortDescending] 
+     * @param {{ [key: string]: string; }} [filters] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof LiabilitiesApi
      */
-    public apiLiabilitiesGet(pageNumber?: number, pageSize?: number, filter?: string, filterValue?: string, sortBy?: string, sortDescending?: boolean, options?: RawAxiosRequestConfig) {
-        return LiabilitiesApiFp(this.configuration).apiLiabilitiesGet(pageNumber, pageSize, filter, filterValue, sortBy, sortDescending, options).then((request) => request(this.axios, this.basePath));
+    public apiLiabilitiesGet(pageNumber?: number, pageSize?: number, sortBy?: string, sortDescending?: boolean, filters?: { [key: string]: string; }, options?: RawAxiosRequestConfig) {
+        return LiabilitiesApiFp(this.configuration).apiLiabilitiesGet(pageNumber, pageSize, sortBy, sortDescending, filters, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

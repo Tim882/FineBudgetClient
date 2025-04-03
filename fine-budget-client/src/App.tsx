@@ -11,8 +11,9 @@ import {
 import Sidebar from './Sidebar';
 import Header from './Header';
 import AppRoutes from './AppRoutes';
+import ProductsPage from './ProductsPage';
 
-const drawerWidth = 240;
+const drawerWidth = 0;
 
 const App = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -34,13 +35,21 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ 
+            flexGrow: 1,
+            p: 3,
+            width: '100vh',
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column'
+      }}>
         <CssBaseline />
         <Header 
           handleDrawerToggle={handleDrawerToggle} 
           toggleTheme={toggleTheme} 
           themeMode={themeMode} 
         />
+        
         <Sidebar 
           handleDrawerToggle={handleDrawerToggle} 
           mobileOpen={mobileOpen} 
@@ -48,15 +57,19 @@ const App = () => {
         <Box
           component="main"
           sx={{ 
-            flexGrow: 1, 
-            p: 3, 
-            width: { sm: `calc(100% - ${drawerWidth}px)` } 
+            flexGrow: 1,
+            p: 3,
+            width: '100vh',
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column'
           }}
         >
           <Toolbar />
-          <Typography paragraph>
+          <Box sx={{ flexGrow: 1, width: '100%' }}>
             <AppRoutes />
-          </Typography>
+            <ProductsPage />
+          </Box>
         </Box>
       </Box>
     </ThemeProvider>
