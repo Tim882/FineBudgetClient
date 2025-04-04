@@ -11,7 +11,7 @@ import {
 import Sidebar from './Sidebar';
 import Header from './Header';
 import AppRoutes from './AppRoutes';
-import ProductsPage from './ProductsPage';
+import AccountsPage from './AccountsPage';
 
 const drawerWidth = 0;
 
@@ -38,10 +38,8 @@ const App = () => {
       <Box sx={{ 
             flexGrow: 1,
             p: 3,
-            width: '100vh',
             minHeight: '100vh',
             display: 'flex',
-            flexDirection: 'column'
       }}>
         <CssBaseline />
         <Header 
@@ -66,9 +64,13 @@ const App = () => {
           }}
         >
           <Toolbar />
-          <Box sx={{ flexGrow: 1, width: '100%' }}>
+          <Box sx={{ 
+            width: '100%',
+            flexGrow: 1,
+            display: 'flex',
+            flexDirection: 'column'
+          }}>
             <AppRoutes />
-            <ProductsPage />
           </Box>
         </Box>
       </Box>

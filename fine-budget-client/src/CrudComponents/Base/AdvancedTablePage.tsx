@@ -117,6 +117,7 @@ interface TableColumn {
   filterOptions?: { value: string; label: string }[];
   renderCell?: (value: any, row: DataItem) => React.ReactNode;
   supportedOperators?: FilterOperator[];
+  hidden?: boolean;
 }
 
 interface TablePageProps<T extends DataItem> {
@@ -468,8 +469,20 @@ const AdvancedTablePage = <T extends DataItem>({
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Paper sx={{ width: '100%', mb: 2 }}>
+    <Box sx={{ 
+      width: '100%',
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
+      <Paper sx={{ 
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        flexGrow: 1,
+        overflow: 'hidden'
+      }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {title}
@@ -491,11 +504,20 @@ const AdvancedTablePage = <T extends DataItem>({
           </Tooltip>
         </Toolbar>
 
-        <TableContainer>
-          <Table>
+        <TableContainer sx={{ 
+          flex: 1,
+          width: '100%',
+          overflow: 'auto'
+        }}>
+          <Table sx={{ 
+            width: '100%',
+            minWidth: '100%'
+          }}>
             <TableHead>
               <TableRow>
-                {columns.map((column) => (
+                {columns
+                    .filter(column => !column.hidden)
+                    .map((column) => (
                   <TableCell
                     key={column.field}
                     width={column.width}
@@ -507,7 +529,7 @@ const AdvancedTablePage = <T extends DataItem>({
                       sx={{
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'space-between',
+                        //justifyContent: 'space-between',
                       }}
                     >
                       {column.sortable ? (
@@ -574,7 +596,9 @@ const AdvancedTablePage = <T extends DataItem>({
               ) : (
                 data.map((row) => (
                   <TableRow hover key={row.id}>
-                    {columns.map((column) => (
+                    {columns
+                        .filter(column => !column.hidden)
+                        .map((column) => (
                       <TableCell key={`${row.id}-${column.field}`}>
                         {column.renderCell
                           ? column.renderCell(row[column.field], row)
