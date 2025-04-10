@@ -12,7 +12,7 @@ interface Liability {
   balance: number;
 }
 
-const LiabilitysPage = () => {
+const LiabilitiesPage = () => {
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [currentLiability, setCurrentLiability] = useState<LiabilityResponseDto | null>(null);
   const [formData, setFormData] = useState({
@@ -185,4 +185,4 @@ const LiabilitysPage = () => {
   );
 };
 
-export default LiabilitysPage;
+export default LiabilitiesPage;

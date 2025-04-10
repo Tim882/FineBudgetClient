@@ -18,11 +18,14 @@
     "@mui/x-data-grid": "^7.28.2",
     "@mui/x-date-pickers": "^7.28.2",
     "@openapitools/openapi-generator-cli": "^2.18.4",
+    "@types/jwt-decode": "^2.2.1",
+    "@types/react-router-dom": "^5.3.3",
     "axios": "^1.8.4",
+    "jwt-decode": "^4.0.0",
     "mui": "^0.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.4.1"
+    "react-router-dom": "^7.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
