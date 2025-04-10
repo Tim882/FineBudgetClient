@@ -20,7 +20,7 @@ import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import HomePage from './components/HomePage';
 import RegisterPage from './components/RegisterPage';
-import DashboardPage from './components/DashboardPage';
+// import DashboardPage from './components/DashboardPage';
 //import DashboardPage from './pages/DashboardPage';
 //import HomePage from './pages/HomePage';
 
@@ -44,22 +44,6 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Router>
-        <AuthProvider>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-            <Route path="/reset-password" element={<ResetPasswordPage />} />
-            
-            {/* Защищенные маршруты */}
-            <Route element={<ProtectedRoute />}>
-              <Route path="/dashboard" element={<DashboardPage />} />
-            </Route>
-          </Routes>
-        </AuthProvider>
-      </Router>
       <Box sx={{ 
             flexGrow: 1,
             p: 3,

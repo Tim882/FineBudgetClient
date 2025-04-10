@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { RegisterData } from '../types/auth';
-import '../styles/AuthPages.css';
+// import '../styles/AuthPages.css';
 
 const RegisterPage: React.FC = () => {
   const [formData, setFormData] = useState<RegisterData>({

@@ -653,6 +653,220 @@
         }
       }
     },
+    "/api/Auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/confirm-email": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/refresh-token": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/change-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/forgot-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/reset-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Costs": {
       "get": {
         "tags": [
@@ -1700,16 +1914,20 @@
             "type": "string",
             "nullable": true
           },
-          "additionalMessage": {
+          "description": {
             "type": "string",
             "nullable": true
           },
-          "errorCode": {
+          "statusCode": {
             "type": "integer",
             "format": "int32"
           },
           "data": {
             "$ref": "#/components/schemas/AccountResponseDto"
+          },
+          "errorCode": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -1717,7 +1935,7 @@
       "AccountResponseDtoPaginatedResponse": {
         "type": "object",
         "properties": {
-          "data": {
+          "items": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AccountResponseDto"
@@ -1754,16 +1972,20 @@
             "type": "string",
             "nullable": true
           },
-          "additionalMessage": {
+          "description": {
             "type": "string",
             "nullable": true
           },
-          "errorCode": {
+          "statusCode": {
             "type": "integer",
             "format": "int32"
           },
           "data": {
             "$ref": "#/components/schemas/AccountResponseDtoPaginatedResponse"
+          },
+          "errorCode": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -1832,16 +2054,20 @@
             "type": "string",
             "nullable": true
           },
-          "additionalMessage": {
+          "description": {
             "type": "string",
             "nullable": true
           },
-          "errorCode": {
+          "statusCode": {
             "type": "integer",
             "format": "int32"
           },
           "data": {
             "$ref": "#/components/schemas/AssetResponseDto"
+          },
+          "errorCode": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -1849,7 +2075,7 @@
       "AssetResponseDtoPaginatedResponse": {
         "type": "object",
         "properties": {
-          "data": {
+          "items": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AssetResponseDto"
@@ -1886,16 +2112,20 @@
             "type": "string",
             "nullable": true
           },
-          "additionalMessage": {
+          "description": {
             "type": "string",
             "nullable": true
           },
-          "errorCode": {
+          "statusCode": {
             "type": "integer",
             "format": "int32"
           },
           "data": {
             "$ref": "#/components/schemas/AssetResponseDtoPaginatedResponse"
+          },
+          "errorCode": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -1909,6 +2139,32 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "ChangePasswordDto": {
+        "required": [
+          "currentPassword",
+          "newPassword"
+        ],
+        "type": "object",
+        "properties": {
+          "currentPassword": {
+            "minLength": 1,
+            "type": "string",
+            "format": "password"
+          },
+          "newPassword": {
+            "maxLength": 100,
+            "minLength": 8,
+            "type": "string",
+            "format": "password"
+          },
+          "confirmNewPassword": {
+            "type": "string",
+            "format": "password",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "CostCategory": {
         "type": "integer",
@@ -2028,16 +2284,20 @@
             "type": "string",
             "nullable": true
           },
-          "additionalMessage": {
+          "description": {
             "type": "string",
             "nullable": true
           },
-          "errorCode": {
+          "statusCode": {
             "type": "integer",
             "format": "int32"
           },
           "data": {
             "$ref": "#/components/schemas/CostResponseDto"
+          },
+          "errorCode": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -2045,7 +2305,7 @@
       "CostResponseDtoPaginatedResponse": {
         "type": "object",
         "properties": {
-          "data": {
+          "items": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CostResponseDto"
@@ -2082,16 +2342,30 @@
             "type": "string",
             "nullable": true
           },
-          "additionalMessage": {
+          "description": {
             "type": "string",
             "nullable": true
           },
-          "errorCode": {
+          "statusCode": {
             "type": "integer",
             "format": "int32"
           },
           "data": {
             "$ref": "#/components/schemas/CostResponseDtoPaginatedResponse"
+          },
+          "errorCode": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ForgotPasswordDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2211,16 +2485,20 @@
             "type": "string",
             "nullable": true
           },
-          "additionalMessage": {
+          "description": {
             "type": "string",
             "nullable": true
           },
-          "errorCode": {
+          "statusCode": {
             "type": "integer",
             "format": "int32"
           },
           "data": {
             "$ref": "#/components/schemas/IncomeResponseDto"
+          },
+          "errorCode": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -2228,7 +2506,7 @@
       "IncomeResponseDtoPaginatedResponse": {
         "type": "object",
         "properties": {
-          "data": {
+          "items": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/IncomeResponseDto"
@@ -2265,16 +2543,20 @@
             "type": "string",
             "nullable": true
           },
-          "additionalMessage": {
+          "description": {
             "type": "string",
             "nullable": true
           },
-          "errorCode": {
+          "statusCode": {
             "type": "integer",
             "format": "int32"
           },
           "data": {
             "$ref": "#/components/schemas/IncomeResponseDtoPaginatedResponse"
+          },
+          "errorCode": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -2343,16 +2625,20 @@
             "type": "string",
             "nullable": true
           },
-          "additionalMessage": {
+          "description": {
             "type": "string",
             "nullable": true
           },
-          "errorCode": {
+          "statusCode": {
             "type": "integer",
             "format": "int32"
           },
           "data": {
             "$ref": "#/components/schemas/LiabilityResponseDto"
+          },
+          "errorCode": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -2360,7 +2646,7 @@
       "LiabilityResponseDtoPaginatedResponse": {
         "type": "object",
         "properties": {
-          "data": {
+          "items": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/LiabilityResponseDto"
@@ -2397,16 +2683,20 @@
             "type": "string",
             "nullable": true
           },
-          "additionalMessage": {
+          "description": {
             "type": "string",
             "nullable": true
           },
-          "errorCode": {
+          "statusCode": {
             "type": "integer",
             "format": "int32"
           },
           "data": {
             "$ref": "#/components/schemas/LiabilityResponseDtoPaginatedResponse"
+          },
+          "errorCode": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -2418,6 +2708,29 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "LoginDto": {
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string",
+            "format": "password"
+          },
+          "rememberMe": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
       },
       "ProblemDetails": {
         "type": "object",
@@ -2445,7 +2758,91 @@
           }
         },
         "additionalProperties": { }
+      },
+      "RefreshTokenRequest": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterDto": {
+        "required": [
+          "email",
+          "firstName",
+          "lastName",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "format": "email"
+          },
+          "firstName": {
+            "maxLength": 50,
+            "minLength": 2,
+            "type": "string"
+          },
+          "lastName": {
+            "maxLength": 50,
+            "minLength": 2,
+            "type": "string"
+          },
+          "password": {
+            "maxLength": 100,
+            "minLength": 8,
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^\\da-zA-Z]).{8,}$",
+            "type": "string",
+            "format": "password"
+          },
+          "confirmPassword": {
+            "type": "string",
+            "format": "password",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResetPasswordDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme",
+        "scheme": "bearer"
       }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

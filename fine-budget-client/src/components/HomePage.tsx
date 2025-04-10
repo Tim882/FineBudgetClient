@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import '../styles/HomePage.css';
+// import '../styles/HomePage.css';
 
 const HomePage: React.FC = () => {
   const { user } = useAuth();

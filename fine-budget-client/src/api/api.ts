@@ -126,19 +126,25 @@ export interface AccountResponseDtoApiResponse {
      * @type {string}
      * @memberof AccountResponseDtoApiResponse
      */
-    'additionalMessage'?: string | null;
+    'description'?: string | null;
     /**
      * 
      * @type {number}
      * @memberof AccountResponseDtoApiResponse
      */
-    'errorCode'?: number;
+    'statusCode'?: number;
     /**
      * 
      * @type {AccountResponseDto}
      * @memberof AccountResponseDtoApiResponse
      */
     'data'?: AccountResponseDto;
+    /**
+     * 
+     * @type {number}
+     * @memberof AccountResponseDtoApiResponse
+     */
+    'errorCode'?: number;
 }
 /**
  * 
@@ -151,7 +157,7 @@ export interface AccountResponseDtoPaginatedResponse {
      * @type {Array<AccountResponseDto>}
      * @memberof AccountResponseDtoPaginatedResponse
      */
-    'data'?: Array<AccountResponseDto> | null;
+    'items'?: Array<AccountResponseDto> | null;
     /**
      * 
      * @type {number}
@@ -200,19 +206,25 @@ export interface AccountResponseDtoPaginatedResponseApiResponse {
      * @type {string}
      * @memberof AccountResponseDtoPaginatedResponseApiResponse
      */
-    'additionalMessage'?: string | null;
+    'description'?: string | null;
     /**
      * 
      * @type {number}
      * @memberof AccountResponseDtoPaginatedResponseApiResponse
      */
-    'errorCode'?: number;
+    'statusCode'?: number;
     /**
      * 
      * @type {AccountResponseDtoPaginatedResponse}
      * @memberof AccountResponseDtoPaginatedResponseApiResponse
      */
     'data'?: AccountResponseDtoPaginatedResponse;
+    /**
+     * 
+     * @type {number}
+     * @memberof AccountResponseDtoPaginatedResponseApiResponse
+     */
+    'errorCode'?: number;
 }
 /**
  * 
@@ -321,19 +333,25 @@ export interface AssetResponseDtoApiResponse {
      * @type {string}
      * @memberof AssetResponseDtoApiResponse
      */
-    'additionalMessage'?: string | null;
+    'description'?: string | null;
     /**
      * 
      * @type {number}
      * @memberof AssetResponseDtoApiResponse
      */
-    'errorCode'?: number;
+    'statusCode'?: number;
     /**
      * 
      * @type {AssetResponseDto}
      * @memberof AssetResponseDtoApiResponse
      */
     'data'?: AssetResponseDto;
+    /**
+     * 
+     * @type {number}
+     * @memberof AssetResponseDtoApiResponse
+     */
+    'errorCode'?: number;
 }
 /**
  * 
@@ -346,7 +364,7 @@ export interface AssetResponseDtoPaginatedResponse {
      * @type {Array<AssetResponseDto>}
      * @memberof AssetResponseDtoPaginatedResponse
      */
-    'data'?: Array<AssetResponseDto> | null;
+    'items'?: Array<AssetResponseDto> | null;
     /**
      * 
      * @type {number}
@@ -395,19 +413,25 @@ export interface AssetResponseDtoPaginatedResponseApiResponse {
      * @type {string}
      * @memberof AssetResponseDtoPaginatedResponseApiResponse
      */
-    'additionalMessage'?: string | null;
+    'description'?: string | null;
     /**
      * 
      * @type {number}
      * @memberof AssetResponseDtoPaginatedResponseApiResponse
      */
-    'errorCode'?: number;
+    'statusCode'?: number;
     /**
      * 
      * @type {AssetResponseDtoPaginatedResponse}
      * @memberof AssetResponseDtoPaginatedResponseApiResponse
      */
     'data'?: AssetResponseDtoPaginatedResponse;
+    /**
+     * 
+     * @type {number}
+     * @memberof AssetResponseDtoPaginatedResponseApiResponse
+     */
+    'errorCode'?: number;
 }
 /**
  * 
@@ -425,6 +449,31 @@ export const AssetType = {
 export type AssetType = typeof AssetType[keyof typeof AssetType];
 
 
+/**
+ * 
+ * @export
+ * @interface ChangePasswordDto
+ */
+export interface ChangePasswordDto {
+    /**
+     * 
+     * @type {string}
+     * @memberof ChangePasswordDto
+     */
+    'currentPassword': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ChangePasswordDto
+     */
+    'newPassword': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ChangePasswordDto
+     */
+    'confirmNewPassword'?: string | null;
+}
 /**
  * 
  * @export
@@ -600,19 +649,25 @@ export interface CostResponseDtoApiResponse {
      * @type {string}
      * @memberof CostResponseDtoApiResponse
      */
-    'additionalMessage'?: string | null;
+    'description'?: string | null;
     /**
      * 
      * @type {number}
      * @memberof CostResponseDtoApiResponse
      */
-    'errorCode'?: number;
+    'statusCode'?: number;
     /**
      * 
      * @type {CostResponseDto}
      * @memberof CostResponseDtoApiResponse
      */
     'data'?: CostResponseDto;
+    /**
+     * 
+     * @type {number}
+     * @memberof CostResponseDtoApiResponse
+     */
+    'errorCode'?: number;
 }
 /**
  * 
@@ -625,7 +680,7 @@ export interface CostResponseDtoPaginatedResponse {
      * @type {Array<CostResponseDto>}
      * @memberof CostResponseDtoPaginatedResponse
      */
-    'data'?: Array<CostResponseDto> | null;
+    'items'?: Array<CostResponseDto> | null;
     /**
      * 
      * @type {number}
@@ -674,19 +729,38 @@ export interface CostResponseDtoPaginatedResponseApiResponse {
      * @type {string}
      * @memberof CostResponseDtoPaginatedResponseApiResponse
      */
-    'additionalMessage'?: string | null;
+    'description'?: string | null;
     /**
      * 
      * @type {number}
      * @memberof CostResponseDtoPaginatedResponseApiResponse
      */
-    'errorCode'?: number;
+    'statusCode'?: number;
     /**
      * 
      * @type {CostResponseDtoPaginatedResponse}
      * @memberof CostResponseDtoPaginatedResponseApiResponse
      */
     'data'?: CostResponseDtoPaginatedResponse;
+    /**
+     * 
+     * @type {number}
+     * @memberof CostResponseDtoPaginatedResponseApiResponse
+     */
+    'errorCode'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface ForgotPasswordDto
+ */
+export interface ForgotPasswordDto {
+    /**
+     * 
+     * @type {string}
+     * @memberof ForgotPasswordDto
+     */
+    'email'?: string | null;
 }
 /**
  * 
@@ -868,19 +942,25 @@ export interface IncomeResponseDtoApiResponse {
      * @type {string}
      * @memberof IncomeResponseDtoApiResponse
      */
-    'additionalMessage'?: string | null;
+    'description'?: string | null;
     /**
      * 
      * @type {number}
      * @memberof IncomeResponseDtoApiResponse
      */
-    'errorCode'?: number;
+    'statusCode'?: number;
     /**
      * 
      * @type {IncomeResponseDto}
      * @memberof IncomeResponseDtoApiResponse
      */
     'data'?: IncomeResponseDto;
+    /**
+     * 
+     * @type {number}
+     * @memberof IncomeResponseDtoApiResponse
+     */
+    'errorCode'?: number;
 }
 /**
  * 
@@ -893,7 +973,7 @@ export interface IncomeResponseDtoPaginatedResponse {
      * @type {Array<IncomeResponseDto>}
      * @memberof IncomeResponseDtoPaginatedResponse
      */
-    'data'?: Array<IncomeResponseDto> | null;
+    'items'?: Array<IncomeResponseDto> | null;
     /**
      * 
      * @type {number}
@@ -942,19 +1022,25 @@ export interface IncomeResponseDtoPaginatedResponseApiResponse {
      * @type {string}
      * @memberof IncomeResponseDtoPaginatedResponseApiResponse
      */
-    'additionalMessage'?: string | null;
+    'description'?: string | null;
     /**
      * 
      * @type {number}
      * @memberof IncomeResponseDtoPaginatedResponseApiResponse
      */
-    'errorCode'?: number;
+    'statusCode'?: number;
     /**
      * 
      * @type {IncomeResponseDtoPaginatedResponse}
      * @memberof IncomeResponseDtoPaginatedResponseApiResponse
      */
     'data'?: IncomeResponseDtoPaginatedResponse;
+    /**
+     * 
+     * @type {number}
+     * @memberof IncomeResponseDtoPaginatedResponseApiResponse
+     */
+    'errorCode'?: number;
 }
 /**
  * 
@@ -1063,19 +1149,25 @@ export interface LiabilityResponseDtoApiResponse {
      * @type {string}
      * @memberof LiabilityResponseDtoApiResponse
      */
-    'additionalMessage'?: string | null;
+    'description'?: string | null;
     /**
      * 
      * @type {number}
      * @memberof LiabilityResponseDtoApiResponse
      */
-    'errorCode'?: number;
+    'statusCode'?: number;
     /**
      * 
      * @type {LiabilityResponseDto}
      * @memberof LiabilityResponseDtoApiResponse
      */
     'data'?: LiabilityResponseDto;
+    /**
+     * 
+     * @type {number}
+     * @memberof LiabilityResponseDtoApiResponse
+     */
+    'errorCode'?: number;
 }
 /**
  * 
@@ -1088,7 +1180,7 @@ export interface LiabilityResponseDtoPaginatedResponse {
      * @type {Array<LiabilityResponseDto>}
      * @memberof LiabilityResponseDtoPaginatedResponse
      */
-    'data'?: Array<LiabilityResponseDto> | null;
+    'items'?: Array<LiabilityResponseDto> | null;
     /**
      * 
      * @type {number}
@@ -1137,19 +1229,25 @@ export interface LiabilityResponseDtoPaginatedResponseApiResponse {
      * @type {string}
      * @memberof LiabilityResponseDtoPaginatedResponseApiResponse
      */
-    'additionalMessage'?: string | null;
+    'description'?: string | null;
     /**
      * 
      * @type {number}
      * @memberof LiabilityResponseDtoPaginatedResponseApiResponse
      */
-    'errorCode'?: number;
+    'statusCode'?: number;
     /**
      * 
      * @type {LiabilityResponseDtoPaginatedResponse}
      * @memberof LiabilityResponseDtoPaginatedResponseApiResponse
      */
     'data'?: LiabilityResponseDtoPaginatedResponse;
+    /**
+     * 
+     * @type {number}
+     * @memberof LiabilityResponseDtoPaginatedResponseApiResponse
+     */
+    'errorCode'?: number;
 }
 /**
  * 
@@ -1165,6 +1263,31 @@ export const LiabilityType = {
 export type LiabilityType = typeof LiabilityType[keyof typeof LiabilityType];
 
 
+/**
+ * 
+ * @export
+ * @interface LoginDto
+ */
+export interface LoginDto {
+    /**
+     * 
+     * @type {string}
+     * @memberof LoginDto
+     */
+    'email': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof LoginDto
+     */
+    'password': string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof LoginDto
+     */
+    'rememberMe'?: boolean;
+}
 /**
  * 
  * @export
@@ -1204,6 +1327,87 @@ export interface ProblemDetails {
      */
     'instance'?: string | null;
 }
+/**
+ * 
+ * @export
+ * @interface RefreshTokenRequest
+ */
+export interface RefreshTokenRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof RefreshTokenRequest
+     */
+    'accessToken'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof RefreshTokenRequest
+     */
+    'refreshToken'?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface RegisterDto
+ */
+export interface RegisterDto {
+    /**
+     * 
+     * @type {string}
+     * @memberof RegisterDto
+     */
+    'email': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RegisterDto
+     */
+    'firstName': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RegisterDto
+     */
+    'lastName': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RegisterDto
+     */
+    'password': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RegisterDto
+     */
+    'confirmPassword'?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface ResetPasswordDto
+ */
+export interface ResetPasswordDto {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResetPasswordDto
+     */
+    'email'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResetPasswordDto
+     */
+    'token'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResetPasswordDto
+     */
+    'newPassword'?: string | null;
+}
 
 /**
  * AccountsApi - axios parameter creator
@@ -1233,6 +1437,10 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (pageNumber !== undefined) {
                 localVarQueryParameter['PageNumber'] = pageNumber;
@@ -1289,6 +1497,10 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -1321,6 +1533,10 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -1356,6 +1572,10 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -1388,6 +1608,10 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -1640,6 +1864,10 @@ export const AssetsApiAxiosParamCreator = function (configuration?: Configuratio
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
             if (pageNumber !== undefined) {
                 localVarQueryParameter['PageNumber'] = pageNumber;
             }
@@ -1695,6 +1923,10 @@ export const AssetsApiAxiosParamCreator = function (configuration?: Configuratio
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -1727,6 +1959,10 @@ export const AssetsApiAxiosParamCreator = function (configuration?: Configuratio
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -1762,6 +1998,10 @@ export const AssetsApiAxiosParamCreator = function (configuration?: Configuratio
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -1794,6 +2034,10 @@ export const AssetsApiAxiosParamCreator = function (configuration?: Configuratio
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -2018,6 +2262,537 @@ export class AssetsApi extends BaseAPI {
 
 
 /**
+ * AuthApi - axios parameter creator
+ * @export
+ */
+export const AuthApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @param {ChangePasswordDto} [changePasswordDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthChangePasswordPost: async (changePasswordDto?: ChangePasswordDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Auth/change-password`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(changePasswordDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} [userId] 
+         * @param {string} [token] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthConfirmEmailGet: async (userId?: string, token?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Auth/confirm-email`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (userId !== undefined) {
+                localVarQueryParameter['userId'] = userId;
+            }
+
+            if (token !== undefined) {
+                localVarQueryParameter['token'] = token;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {ForgotPasswordDto} [forgotPasswordDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthForgotPasswordPost: async (forgotPasswordDto?: ForgotPasswordDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Auth/forgot-password`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(forgotPasswordDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {LoginDto} [loginDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthLoginPost: async (loginDto?: LoginDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Auth/login`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(loginDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {RefreshTokenRequest} [refreshTokenRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthRefreshTokenPost: async (refreshTokenRequest?: RefreshTokenRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Auth/refresh-token`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(refreshTokenRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {RegisterDto} [registerDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthRegisterPost: async (registerDto?: RegisterDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Auth/register`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(registerDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {ResetPasswordDto} [resetPasswordDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthResetPasswordPost: async (resetPasswordDto?: ResetPasswordDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/Auth/reset-password`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resetPasswordDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * AuthApi - functional programming interface
+ * @export
+ */
+export const AuthApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AuthApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @param {ChangePasswordDto} [changePasswordDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiAuthChangePasswordPost(changePasswordDto?: ChangePasswordDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiAuthChangePasswordPost(changePasswordDto, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.apiAuthChangePasswordPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} [userId] 
+         * @param {string} [token] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiAuthConfirmEmailGet(userId?: string, token?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiAuthConfirmEmailGet(userId, token, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.apiAuthConfirmEmailGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {ForgotPasswordDto} [forgotPasswordDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiAuthForgotPasswordPost(forgotPasswordDto?: ForgotPasswordDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiAuthForgotPasswordPost(forgotPasswordDto, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.apiAuthForgotPasswordPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {LoginDto} [loginDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiAuthLoginPost(loginDto?: LoginDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiAuthLoginPost(loginDto, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.apiAuthLoginPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {RefreshTokenRequest} [refreshTokenRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiAuthRefreshTokenPost(refreshTokenRequest?: RefreshTokenRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiAuthRefreshTokenPost(refreshTokenRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.apiAuthRefreshTokenPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {RegisterDto} [registerDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiAuthRegisterPost(registerDto?: RegisterDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiAuthRegisterPost(registerDto, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.apiAuthRegisterPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {ResetPasswordDto} [resetPasswordDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiAuthResetPasswordPost(resetPasswordDto?: ResetPasswordDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiAuthResetPasswordPost(resetPasswordDto, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.apiAuthResetPasswordPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * AuthApi - factory interface
+ * @export
+ */
+export const AuthApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AuthApiFp(configuration)
+    return {
+        /**
+         * 
+         * @param {ChangePasswordDto} [changePasswordDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthChangePasswordPost(changePasswordDto?: ChangePasswordDto, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.apiAuthChangePasswordPost(changePasswordDto, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} [userId] 
+         * @param {string} [token] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthConfirmEmailGet(userId?: string, token?: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.apiAuthConfirmEmailGet(userId, token, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {ForgotPasswordDto} [forgotPasswordDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthForgotPasswordPost(forgotPasswordDto?: ForgotPasswordDto, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.apiAuthForgotPasswordPost(forgotPasswordDto, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {LoginDto} [loginDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthLoginPost(loginDto?: LoginDto, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.apiAuthLoginPost(loginDto, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {RefreshTokenRequest} [refreshTokenRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthRefreshTokenPost(refreshTokenRequest?: RefreshTokenRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.apiAuthRefreshTokenPost(refreshTokenRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {RegisterDto} [registerDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthRegisterPost(registerDto?: RegisterDto, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.apiAuthRegisterPost(registerDto, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {ResetPasswordDto} [resetPasswordDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiAuthResetPasswordPost(resetPasswordDto?: ResetPasswordDto, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.apiAuthResetPasswordPost(resetPasswordDto, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * AuthApi - object-oriented interface
+ * @export
+ * @class AuthApi
+ * @extends {BaseAPI}
+ */
+export class AuthApi extends BaseAPI {
+    /**
+     * 
+     * @param {ChangePasswordDto} [changePasswordDto] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    public apiAuthChangePasswordPost(changePasswordDto?: ChangePasswordDto, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).apiAuthChangePasswordPost(changePasswordDto, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} [userId] 
+     * @param {string} [token] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    public apiAuthConfirmEmailGet(userId?: string, token?: string, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).apiAuthConfirmEmailGet(userId, token, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {ForgotPasswordDto} [forgotPasswordDto] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    public apiAuthForgotPasswordPost(forgotPasswordDto?: ForgotPasswordDto, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).apiAuthForgotPasswordPost(forgotPasswordDto, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {LoginDto} [loginDto] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    public apiAuthLoginPost(loginDto?: LoginDto, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).apiAuthLoginPost(loginDto, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {RefreshTokenRequest} [refreshTokenRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    public apiAuthRefreshTokenPost(refreshTokenRequest?: RefreshTokenRequest, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).apiAuthRefreshTokenPost(refreshTokenRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {RegisterDto} [registerDto] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    public apiAuthRegisterPost(registerDto?: RegisterDto, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).apiAuthRegisterPost(registerDto, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {ResetPasswordDto} [resetPasswordDto] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    public apiAuthResetPasswordPost(resetPasswordDto?: ResetPasswordDto, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).apiAuthResetPasswordPost(resetPasswordDto, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
  * CostsApi - axios parameter creator
  * @export
  */
@@ -2045,6 +2820,10 @@ export const CostsApiAxiosParamCreator = function (configuration?: Configuration
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (pageNumber !== undefined) {
                 localVarQueryParameter['PageNumber'] = pageNumber;
@@ -2101,6 +2880,10 @@ export const CostsApiAxiosParamCreator = function (configuration?: Configuration
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -2133,6 +2916,10 @@ export const CostsApiAxiosParamCreator = function (configuration?: Configuration
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -2168,6 +2955,10 @@ export const CostsApiAxiosParamCreator = function (configuration?: Configuration
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -2200,6 +2991,10 @@ export const CostsApiAxiosParamCreator = function (configuration?: Configuration
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -2452,6 +3247,10 @@ export const IncomesApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
             if (pageNumber !== undefined) {
                 localVarQueryParameter['PageNumber'] = pageNumber;
             }
@@ -2507,6 +3306,10 @@ export const IncomesApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -2539,6 +3342,10 @@ export const IncomesApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -2574,6 +3381,10 @@ export const IncomesApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -2606,6 +3417,10 @@ export const IncomesApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -2858,6 +3673,10 @@ export const LiabilitiesApiAxiosParamCreator = function (configuration?: Configu
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
             if (pageNumber !== undefined) {
                 localVarQueryParameter['PageNumber'] = pageNumber;
             }
@@ -2913,6 +3732,10 @@ export const LiabilitiesApiAxiosParamCreator = function (configuration?: Configu
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -2945,6 +3768,10 @@ export const LiabilitiesApiAxiosParamCreator = function (configuration?: Configu
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -2980,6 +3807,10 @@ export const LiabilitiesApiAxiosParamCreator = function (configuration?: Configu
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -3012,6 +3843,10 @@ export const LiabilitiesApiAxiosParamCreator = function (configuration?: Configu
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     

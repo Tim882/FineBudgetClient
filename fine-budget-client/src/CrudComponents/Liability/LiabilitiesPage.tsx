@@ -51,7 +51,7 @@ const LiabilitiesPage = () => {
         filters
       );
       return {
-        data: response.data.data?.data ?? [],
+        data: response.data.data?.items ?? [],
         totalCount: response.data.data?.totalCount ?? 0
       };
     } catch (error) {

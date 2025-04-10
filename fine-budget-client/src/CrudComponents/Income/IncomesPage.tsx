@@ -40,7 +40,7 @@ const IncomesPage = () => {
     const fetchAccounts = async () => {
       try {
         const response = await accountsClient.apiAccountsGet(1, 100);
-        setAccounts(response.data.data?.data ?? []);
+        setAccounts(response.data.data?.items ?? []);
       } catch (error) {
         console.error('Error fetching accounts:', error);
       }
@@ -62,7 +62,7 @@ const IncomesPage = () => {
         filters
       );
       return {
-        data: response.data.data?.data ?? [],
+        data: response.data.data?.items ?? [],
         totalCount: response.data.data?.totalCount ?? 0
       };
     } catch (error) {
