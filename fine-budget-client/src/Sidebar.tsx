@@ -20,7 +20,7 @@ import {
 const drawerWidth = 240;
 
 const menuItems = [
-  { text: 'Home', icon: <HomeIcon />, path: '/' },
+  { text: 'Главная', icon: <HomeIcon />, path: '/' },
   { text: 'Счета', icon: <PeopleIcon />, path: '/accounts' },
   { text: 'Расходы', icon: <PeopleIcon />, path: '/costs' },
   { text: 'Доходы', icon: <PeopleIcon />, path: '/incomes' },
@@ -53,17 +53,15 @@ interface SidebarProps {
           }}
         >
           <Box sx={{ p: 2 }}>
-            <Typography variant="h6">Navigation</Typography>
+            <Typography variant="h6">Навигация</Typography>
           </Box>
           <Divider />
           <List>
-            {['Home', 'Users', 'Messages'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index === 0 ? <HomeIcon /> : index === 1 ? <PeopleIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
+            {menuItems.map((item) => (
+              <ListItem key={item.text} disablePadding>
+                <ListItemButton component={Link} to={item.path}>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.text} />
                 </ListItemButton>
               </ListItem>
             ))}
@@ -78,7 +76,7 @@ interface SidebarProps {
           open
         >
           <Box sx={{ p: 2 }}>
-            <Typography variant="h6">Navigation</Typography>
+            <Typography variant="h6">Навигация</Typography>
           </Box>
           <Divider />
           <List>

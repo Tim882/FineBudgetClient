@@ -11,9 +11,6 @@ import {
 import Sidebar from './Sidebar';
 import Header from './Header';
 import AppRoutes from './AppRoutes';
-import AccountsPage from './AccountsPage';
-
-const drawerWidth = 0;
 
 const App = () => {
   const [mobileOpen, setMobileOpen] = useState(false);

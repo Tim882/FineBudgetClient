@@ -86,20 +86,20 @@ interface AppBarProps {
                 <ListItemIcon>
                   <AccountIcon fontSize="small" />
                 </ListItemIcon>
-                <ListItemText>Profile</ListItemText>
+                <ListItemText>Профиль</ListItemText>
               </MenuItem>
               <MenuItem onClick={handleClose}>
                 <ListItemIcon>
                   <SettingsIcon fontSize="small" />
                 </ListItemIcon>
-                <ListItemText>Settings</ListItemText>
+                <ListItemText>Настройки</ListItemText>
               </MenuItem>
               <Divider />
               <MenuItem onClick={handleClose}>
                 <ListItemIcon>
                   <LogoutIcon fontSize="small" />
                 </ListItemIcon>
-                <ListItemText>Logout</ListItemText>
+                <ListItemText>Выход</ListItemText>
               </MenuItem>
             </Menu>
           </Box>

@@ -1,26 +1,43 @@
 import React, { useState } from 'react';
 import AdvancedTablePage from '../Base/AdvancedTablePage';
-import { Box, Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField } from '@mui/material';
-import { LiabilitiesApi, Configuration, LiabilityResponseDto } from '../../api';
+import { Box, Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
+import { LiabilitiesApi, Configuration, LiabilityResponseDto, LiabilityType } from '../../api';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { SelectChangeEvent } from '@mui/material';
 
 const config = new Configuration({ basePath: "https://localhost:7230" });
 const client = new LiabilitiesApi(config);
 
-interface Liability {
-  id: string;
+const LiabilityTypeNames = {
+  [LiabilityType.NUMBER_0]: 'Кредит',
+  [LiabilityType.NUMBER_1]: 'Ипотека'
+};
+
+const liabilityTypeOptions = Object.entries(LiabilityTypeNames).map(([value, label]) => ({
+  value: value,
+  label: label
+}));
+
+interface FormData {
   title: string;
-  balance: number;
+  value: number;
+  liabilityType: LiabilityType; // Оставляем как числовой enum
+  date: Date;
 }
 
-const LiabilitysPage = () => {
+const LiabilitiesPage = () => {
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [currentLiability, setCurrentLiability] = useState<LiabilityResponseDto | null>(null);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     title: '',
-    balance: 0
+    value: 0,
+    liabilityType: LiabilityType.NUMBER_0,
+    date: new Date()
   });
 
-  const fetchLiabilitys = async (
+  const fetchLiabilities = async (
     pagination: { page: number; pageSize: number },
     sort: { field: string; direction: 'asc' | 'desc' } | null,
     filters: Record<string, string>
@@ -46,10 +63,8 @@ const LiabilitysPage = () => {
   const handleDelete = async (id: string): Promise<void> => {
     try {
       await client.apiLiabilitiesIdDelete(id);
-      //return true;
     } catch (error) {
       console.error('Delete error:', error);
-      //return false;
     }
   };
 
@@ -57,7 +72,11 @@ const LiabilitysPage = () => {
     setCurrentLiability(liability);
     setFormData({
       title: liability.title ?? '',
-      balance: liability.value ?? 0
+      value: liability.value ?? 0,
+      liabilityType: typeof liability.liabilityType === 'number' 
+        ? liability.liabilityType 
+        : LiabilityType.NUMBER_0,
+      date: liability.date ? new Date(liability.date) : new Date()
     });
     setEditDialogOpen(true);
   };
@@ -66,7 +85,9 @@ const LiabilitysPage = () => {
     setCurrentLiability(null);
     setFormData({
       title: '',
-      balance: 0
+      value: 0,
+      liabilityType: LiabilityType.NUMBER_0,
+      date: new Date()
     });
     setEditDialogOpen(true);
   };
@@ -75,8 +96,24 @@ const LiabilitysPage = () => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: name === 'balance' ? parseFloat(value) || 0 : value
+      [name]: name === 'value' ? parseFloat(value) || 0 : value
     }));
+  };
+
+  const handleSelectChange = (e: SelectChangeEvent) => {
+    setFormData({
+      ...formData,
+      liabilityType: Number(e.target.value) as LiabilityType // Преобразуем обратно в число
+    });
+  };
+
+  const handleDateChange = (date: Date | null) => {
+    if (date) {
+      setFormData(prev => ({
+        ...prev,
+        creationDate: date
+      }));
+    }
   };
 
   const handleSave = async () => {
@@ -85,13 +122,17 @@ const LiabilitysPage = () => {
         // Update existing liability
         await client.apiLiabilitiesIdPut(currentLiability.id ?? '', {
           title: formData.title,
-          value: formData.balance
+          value: formData.value,
+          liabilityType: formData.liabilityType,
+          date: formData.date.toISOString()
         });
       } else {
         // Create new liability
         await client.apiLiabilitiesPost({
           title: formData.title,
-          value: formData.balance
+          value: formData.value,
+          liabilityType: formData.liabilityType,
+          date: formData.date.toISOString()
         });
       }
       setEditDialogOpen(false);
@@ -101,88 +142,139 @@ const LiabilitysPage = () => {
   };
 
   return (
-    <Box sx={{ 
-      height: '100%',
-      width: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center' // Центрируем содержимое по горизонтали
-    }}>
-      <AdvancedTablePage<LiabilityResponseDto>
-        title="Счета"
-        columns={[
-          { 
-            field: 'id', 
-            headerName: 'ID', 
-            width: 80, 
-            sortable: true,
-            filterable: true,
-            filterType: 'operator',
-            supportedOperators: ['eq', 'contains'],
-          },
-          { 
-            field: 'title', 
-            headerName: 'Название', 
-            sortable: true, 
-            filterable: true,
-            filterType: 'operator',
-            supportedOperators: ['eq', 'contains'],
-          },
-          { 
-            field: 'balance', 
-            headerName: 'Баланс', 
-            sortable: true,
-            filterable: true,
-            filterType: 'operator',
-            supportedOperators: ['eq', 'gt', 'gte', 'lt', 'lte', 'between'],
-            renderCell: (value) => `$${value.toFixed(2)}`,
-          },
-        ]}
-        fetchData={fetchLiabilitys}
-        onAdd={handleAddClick}
-        onEdit={handleEditClick}
-        onDelete={handleDelete}
-        initialPageSize={10}
-      />
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <Box sx={{ 
+        height: '100%',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }}>
+        <AdvancedTablePage<LiabilityResponseDto>
+          title="Пассивы"
+          columns={[
+            { 
+              field: 'id', 
+              headerName: 'ID', 
+              width: 80, 
+              sortable: true,
+              filterable: true,
+              filterType: 'operator',
+              supportedOperators: ['eq', 'contains'],
+            },
+            { 
+              field: 'title', 
+              headerName: 'Название', 
+              sortable: true, 
+              filterable: true,
+              filterType: 'operator',
+              supportedOperators: ['eq', 'contains'],
+            },
+            { 
+              field: 'value', 
+              headerName: 'Стоимость', 
+              sortable: true,
+              filterable: true,
+              filterType: 'operator',
+              supportedOperators: ['eq', 'gt', 'gte', 'lt', 'lte', 'between'],
+              renderCell: (value) => `$${value.toFixed(2)}`,
+            },
+            { 
+              field: 'liabilityType', 
+              headerName: 'Тип пассива', 
+              sortable: true,
+              filterable: true,
+              filterType: 'select',
+              filterOptions: liabilityTypeOptions,
+              renderCell: (value) => LiabilityTypeNames[value as keyof typeof LiabilityTypeNames],
+            },
+            { 
+              field: 'date', 
+              headerName: 'Дата создания', 
+              sortable: true,
+              filterable: true,
+              filterType: 'date',
+              renderCell: (value) => new Date(value).toLocaleDateString(),
+            },
+          ]}
+          fetchData={fetchLiabilities}
+          onAdd={handleAddClick}
+          onEdit={handleEditClick}
+          onDelete={handleDelete}
+          initialPageSize={10}
+        />
 
-      {/* Редактирование/добавление в диалоговом окне */}
-      <Dialog open={editDialogOpen} onClose={() => setEditDialogOpen(false)} maxWidth="sm" fullWidth>
-        <DialogTitle>
-          {currentLiability ? 'Редактировать счет' : 'Добавить новый счет'}
-        </DialogTitle>
-        <DialogContent>
-          <TextField
-            margin="dense"
-            name="title"
-            label="Название счета"
-            fullWidth
-            variant="outlined"
-            value={formData.title}
-            onChange={handleFormChange}
-            sx={{ mb: 2 }}
-          />
-          <TextField
-            margin="dense"
-            name="balance"
-            label="Баланс"
-            type="number"
-            fullWidth
-            variant="outlined"
-            value={formData.balance}
-            onChange={handleFormChange}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setEditDialogOpen(false)} color="secondary">
-            Отмена
-          </Button>
-          <Button onClick={handleSave} color="primary" variant="contained">
-            Сохранить
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </Box>
+        <Dialog open={editDialogOpen} onClose={() => setEditDialogOpen(false)} maxWidth="sm" fullWidth>
+          <DialogTitle>
+            {currentLiability ? 'Редактировать пассив' : 'Добавить новый пассив'}
+          </DialogTitle>
+          <DialogContent>
+            <TextField
+              margin="dense"
+              name="title"
+              label="Название пассива"
+              fullWidth
+              variant="outlined"
+              value={formData.title}
+              onChange={handleFormChange}
+              sx={{ mb: 2 }}
+            />
+            <TextField
+              margin="dense"
+              name="value"
+              label="Стоимость"
+              type="number"
+              fullWidth
+              variant="outlined"
+              value={formData.value}
+              onChange={handleFormChange}
+              sx={{ mb: 2 }}
+            />
+            
+            <FormControl fullWidth sx={{ mb: 2 }}>
+              <InputLabel id="liability-type-label">Тип пассива</InputLabel>
+              <Select
+                labelId="liability-type-label"
+                name="liabilityType"
+                value={formData.liabilityType.toString()} // Число → строка
+                label="Тип пассива"
+                onChange={handleSelectChange}
+              >
+                {Object.entries(LiabilityType)
+                  .filter(([key]) => isNaN(Number(key))) // Фильтруем reverse mappings
+                  .map(([key, value]) => (
+                    <MenuItem key={key} value={value.toString()}> {/* Число → строка */}
+                      {LiabilityTypeNames[value as keyof typeof LiabilityTypeNames]}
+                    </MenuItem>
+                  ))}
+              </Select>
+            </FormControl>
+            
+            <DatePicker
+              label="Дата создания"
+              value={formData.date}
+              onChange={handleDateChange}
+              slotProps={{
+                textField: {
+                  fullWidth: true,
+                  margin: 'dense',
+                  variant: 'outlined',
+                }
+              }}
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => setEditDialogOpen(false)} color="secondary">
+              Отмена
+            </Button>
+            <Button onClick={handleSave} color="primary" variant="contained">
+              Сохранить
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </Box>
+    </LocalizationProvider>
   );
 };
 
-export default LiabilitysPage;
+export default LiabilitiesPage;

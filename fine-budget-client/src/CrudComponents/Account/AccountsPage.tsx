@@ -6,12 +6,6 @@ import { AccountsApi, Configuration, AccountResponseDto } from '../../api';
 const config = new Configuration({ basePath: "https://localhost:7230" });
 const client = new AccountsApi(config);
 
-interface Account {
-  id: string;
-  title: string;
-  balance: number;
-}
-
 const AccountsPage = () => {
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [currentAccount, setCurrentAccount] = useState<AccountResponseDto | null>(null);
