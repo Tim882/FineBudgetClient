@@ -2,14 +2,26 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { RegisterData } from '../types/auth';
-// import '../styles/AuthPages.css';
+import {
+  Avatar,
+  Box,
+  Button,
+  Container,
+  CssBaseline,
+  TextField,
+  Typography,
+  Paper,
+  Alert,
+  CircularProgress,
+  Link
+} from '@mui/material';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 const RegisterPage: React.FC = () => {
   const [formData, setFormData] = useState<RegisterData>({
     name: '',
     email: '',
     password: '',
-    //confirmPassword: ''
   });
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
@@ -24,10 +36,6 @@ const RegisterPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // if (formData.password !== formData.confirmPassword) {
-    //   return setError('Пароли не совпадают');
-    // }
-
     try {
       setError('');
       setLoading(true);
@@ -45,72 +53,91 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h2>Создать аккаунт</h2>
-        {error && <div className="alert error">{error}</div>}
-        
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Имя</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <Paper
+        elevation={3}
+        sx={{
+          marginTop: 8,
+          padding: 4,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <HowToRegIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Создать аккаунт
+        </Typography>
+
+        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3, width: '100%' }}>
+          {error && (
+            <Alert severity="error" sx={{ width: '100%', mb: 2 }}>
+              {error}
+            </Alert>
+          )}
+
+          <TextField
+            margin="normal"
+            autoComplete="name"
+            name="name"
+            required
+            fullWidth
+            id="name"
+            label="Имя"
+            autoFocus
+            value={formData.name}
+            onChange={handleChange}
+          />
           
-          <div className="form-group">
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email"
+            name="email"
+            autoComplete="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
           
-          <div className="form-group">
-            <label>Пароль</label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              minLength={6}
-            />
-          </div>
-          
-          {/* <div className="form-group">
-            <label>Подтвердите пароль</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              required
-              minLength={6}
-            />
-          </div> */}
-          
-          <button 
-            type="submit" 
-            className="btn primary" 
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Пароль"
+            type="password"
+            id="password"
+            autoComplete="new-password"
+            value={formData.password}
+            onChange={handleChange}
+            inputProps={{ minLength: 6 }}
+            helperText="Минимум 6 символов"
+          />
+
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
             disabled={loading}
+            startIcon={loading ? <CircularProgress size={20} /> : null}
           >
             {loading ? 'Регистрация...' : 'Зарегистрироваться'}
-          </button>
-        </form>
-        
-        <div className="auth-footer">
-          Уже есть аккаунт? <a href="/login">Войти</a>
-        </div>
-      </div>
-    </div>
+          </Button>
+
+          <Box sx={{ textAlign: 'center' }}>
+            <Link href="/login" variant="body2">
+              Уже есть аккаунт? Войти
+            </Link>
+          </Box>
+        </Box>
+      </Paper>
+    </Container>
   );
 };
 
