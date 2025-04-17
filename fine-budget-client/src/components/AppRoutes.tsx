@@ -10,6 +10,9 @@ import LoginPage from '../pages/LoginPage';
 import RegisterPage from './RegisterPage';
 import ForgotPasswordPage from '../pages/ForgotPasswordPage';
 import ResetPasswordPage from '../pages/ResetPasswordPage';
+import NotImplementedPage from '../pages/NotImplementedPage';
+import LoanCalculator from '../calculators/LoanCalculator';
+import DepositCalculator from '../calculators/DepositCalculator';
 
 const AppRoutes = () => {
   return (
@@ -25,6 +28,9 @@ const AppRoutes = () => {
             <Route path="/incomes" element={<IncomesPage />} />
             <Route path="/assets" element={<AssetsPage />} />
             <Route path="/liabilities" element={<LiabilitiesPage />} />
+            <Route path="/credit-loan" element={<LoanCalculator />} />
+            <Route path="/calculate-deposit" element={<DepositCalculator />} />
+            <Route path="/under-construction" element={<NotImplementedPage />} />
      
             {/* element={<ProtectedRoute />} */}
           </Routes>

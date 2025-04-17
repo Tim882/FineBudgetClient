@@ -11,10 +11,10 @@
     "generate-api": "openapi-generator-cli generate -i ./swagger.json -g typescript-axios -o src/api --skip-validate-spec"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^7.0.1",
-    "@mui/material": "^7.0.2",
+    "@mui/material": "^5.14.19",
     "@mui/x-data-grid": "^7.28.2",
     "@mui/x-date-pickers": "^7.28.2",
     "@openapitools/openapi-generator-cli": "^2.18.4",
